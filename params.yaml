@@ -1,16 +1,16 @@
 preprocess:
   #input : data/raw/diabetes.csv
   #output : data/preprocessed/data.csv
-  input : data/raw/data.csv # for this to work you need to pull from dvc first or bring the file manually.
-  output : s3://bucket-21029/data/processed/data.csv
+  input : data/raw/diabetes.csv # for this to work you need to pull from dvc first or bring the file manually.
+  output : data/preprocessed/data.csv
 
 train : 
-  data : s3://bucket-21029/data/processed/data.csv
+  data : data/preprocessed/data.csv
   model_path : models.pkl
   random_state : 42
   n_estimators: 100
   max_depth: 5
 
 mlflow: 
-  MLFLOW_TRACKING_URI : http://http://13.38.251.209:5000
+  MLFLOW_TRACKING_URI : http://35.180.186.178:5000
 

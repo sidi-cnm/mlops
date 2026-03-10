@@ -112,3 +112,7 @@ ssh -i "C:\Users\yana\Downloads\mlflow-server-ya.pem" ubuntu@13.53.36.3
 
 image 1 :
 ![alt text](image.png)
+
+
+command pour connecter à mlflow sur ec2 via ssh:
+ssh -i "votre-cle.pem" ubuntu@votre-ip-ec2

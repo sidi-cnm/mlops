@@ -1,0 +1,24 @@
+stages:
+  preprocess:
+    cmd: python src/preprocess.py
+    deps:
+    - data/raw/data.csv
+    - src/preprocess.py
+    params:
+    - preprocess.input
+    - preprocess.output
+    outs:
+    - data/preprocessed/data.csv
+  train:
+    cmd: python src/train.py
+    deps:
+    - data/preprocessed/data.csv
+    - src/train.py
+    params:
+    - mlflow.MLFLOW_TRACKING_URI
+    - train.data
+    - train.max_depth
+    - train.model_path
+    - train.n_estimators
+    outs:
+    - models.pkl
